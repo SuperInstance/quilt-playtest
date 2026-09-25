@@ -1,5 +1,5 @@
 // E7 — adversarial probe suite: find where the reactive model holds and where it leaks
-import { QuiltEngine, parseSheet, Gesture } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine, parseSheet, Gesture } from '../../quilt-arcade/engine/index.js';
 
 let pass = 0, fail = 0;
 const rec = (name, ok, detail) => { ok ? pass++ : fail++; console.log(`${ok ? '✓' : '✗'} ${name}${detail ? ' — ' + detail : ''}`); };

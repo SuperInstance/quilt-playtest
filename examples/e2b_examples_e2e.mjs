@@ -1,9 +1,9 @@
 // E2b — drive the repo's own example sheets through their alert paths
 // (patched engine: listener watch-wiring + eager mode; patched sheets: working idioms)
-import { QuiltEngine, parseSheet } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine, parseSheet } from '../../quilt-arcade/engine/index.js';
 import { readFileSync } from 'node:fs';
 
-const root = '/home/z/my-project/quilt-playtest';
+const root = new URL('..', import.meta.url).pathname;
 const tick = (ms = 30) => new Promise(r => setTimeout(r, ms));
 
 function makeEngine(yamlPath, opts = {}) {

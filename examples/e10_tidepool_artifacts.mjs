@@ -93,7 +93,7 @@ const chained = rows.map((r, i) => {
   return { seq: i, ...fields, row_hash: rowHash };
 });
 
-const out = '/home/z/my-project/download/quilt-playtest/tidepool-artifacts.jsonl';
+const out = new URL('./tidepool-artifacts.jsonl', import.meta.url).pathname;
 writeFileSync(out, chained.map(r => JSON.stringify(r)).join('\n') + '\n');
 
 console.log('── tidepool artifacts written ──');

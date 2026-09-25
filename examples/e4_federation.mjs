@@ -3,10 +3,10 @@
 // adapter exists (SDK tests use hand-rolled fake engines). This demo
 // ships the missing ~20-line adapter and proves cross-instance cell
 // addressing, propagation and subscription work end-to-end.
-import { QuiltEngine } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine } from '../../quilt-arcade/engine/index.js';
 import {
   LocalCellTransport, CellRouter, resolveCell, subscribeCell, parseCellRef,
-} from '/home/z/my-project/quilt-playtest/packages/sdk/dist/index.js';
+} from '../../quilt/packages/sdk/dist/index.js';
 
 // ── THE MISSING ADAPTER: QuiltEngine -> SDK LocalEngine ──────────────
 function adaptEngine(engine) {

@@ -2,7 +2,7 @@
 // The caller-context memoization means a single sheet serves many tenants
 // with isolated cached derived values and per-tier policy routing — no
 // per-tenant deployments, no cache keys to manage by hand.
-import { QuiltEngine } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine } from '../../quilt-arcade/engine/index.js';
 
 let llmCalls = 0;
 const engine = new QuiltEngine('saas-sheet', { eager: true });

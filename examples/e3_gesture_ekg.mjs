@@ -4,7 +4,7 @@
 // monitor attaches to ANY engine via subscriptions and classifies how each
 // cell MOVES: smooth drift vs oscillation vs regime shift vs stuck.
 // Threshold alarms fire on the motion signature, not on absolute values.
-import { QuiltEngine, Gesture } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine, Gesture } from '../../quilt-arcade/engine/index.js';
 
 // ── the reusable monitor ──────────────────────────────────────────────
 class CellEKG {

@@ -14,7 +14,7 @@
 // Reactive invalidation means every new ticket text automatically invalidates
 // the AI cells' caches — the next pull makes fresh model calls. No manual
 // cache management.
-import { QuiltEngine } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine } from '../../quilt-arcade/engine/index.js';
 import ZAI from 'z-ai-web-dev-sdk';
 
 // ── the missing AI provider: z-ai-web-dev-sdk as an AIEngineLike ─────

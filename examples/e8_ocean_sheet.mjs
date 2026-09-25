@@ -27,7 +27,7 @@
 // Runs on the play-test-patched engine: vanilla upstream has no watch wiring,
 // no eager mode, no effectful invalidation (see the dissent ledger).
 
-import { QuiltEngine } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine } from '../../quilt-arcade/engine/index.js';
 import ZAI from 'z-ai-web-dev-sdk';
 
 // ── witness idiom, ported from quilt-cloudflare/src/ocean.ts ────────────────

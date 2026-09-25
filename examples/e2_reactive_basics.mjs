@@ -1,7 +1,7 @@
 // E2 — A from-scratch reactive app: "Service Health Responder"
 // Proves the core loop: sensors -> formulas -> listeners -> program actions,
 // with subscriptions as the "dashboard".
-import { QuiltEngine } from '/home/z/my-project/quilt-playtest/packages/core/dist/index.js';
+import { QuiltEngine } from '../../quilt-arcade/engine/index.js';
 
 const engine = new QuiltEngine('svc-health', { tracing: true });
 
