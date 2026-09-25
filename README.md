@@ -7,7 +7,7 @@ Everything here runs against a **patched engine** — see `patches/playtest-patc
 ## Quick start
 
 ```bash
-cd /home/z/my-project/quilt-playtest   # the play-tested clone (already patched + built)
+cd quilt-playtest   # clone of SuperInstance/quilt with the patches applied + built
 node <script>.mjs                      # any file below
 ```
 

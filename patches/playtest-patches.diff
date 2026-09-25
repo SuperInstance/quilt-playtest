@@ -1,5 +1,7 @@
 diff --git a/packages/core/src/cells/ai.ts b/packages/core/src/cells/ai.ts
-index 16e60a3..62cb61d 100755
+old mode 100644
+new mode 100755
+index 16e60a3..62cb61d
 --- a/packages/core/src/cells/ai.ts
 +++ b/packages/core/src/cells/ai.ts
 @@ -151,6 +151,25 @@ export async function evaluateAI(
@@ -28,8 +30,13 @@ index 16e60a3..62cb61d 100755
    try {
      const result = await engine.call(config, { useCache: true });
      return { value: result, error: null };
+diff --git a/packages/core/src/cells/api.ts b/packages/core/src/cells/api.ts
+old mode 100644
+new mode 100755
 diff --git a/packages/core/src/cells/formula.ts b/packages/core/src/cells/formula.ts
-index 2ebe236..fff4558 100755
+old mode 100644
+new mode 100755
+index 2ebe236..fff4558
 --- a/packages/core/src/cells/formula.ts
 +++ b/packages/core/src/cells/formula.ts
 @@ -196,6 +196,14 @@ export function evaluateFormula(cell: Cell, ctx: CallerContext, allCells: Map<Ce
@@ -47,8 +54,13 @@ index 2ebe236..fff4558 100755
      return value;
    } catch (err) {
      const message = err instanceof Error ? err.message : String(err);
+diff --git a/packages/core/src/cells/io.ts b/packages/core/src/cells/io.ts
+old mode 100644
+new mode 100755
 diff --git a/packages/core/src/cells/listener.ts b/packages/core/src/cells/listener.ts
-index 949883a..46cad9b 100755
+old mode 100644
+new mode 100755
+index 949883a..46cad9b
 --- a/packages/core/src/cells/listener.ts
 +++ b/packages/core/src/cells/listener.ts
 @@ -62,6 +62,9 @@ import type { Cell, CellValue, CellId } from '../types.js';
@@ -85,7 +97,9 @@ index 949883a..46cad9b 100755
  
    return true;
 diff --git a/packages/core/src/cells/program.ts b/packages/core/src/cells/program.ts
-index aed7334..f82e390 100755
+old mode 100644
+new mode 100755
+index aed7334..f82e390
 --- a/packages/core/src/cells/program.ts
 +++ b/packages/core/src/cells/program.ts
 @@ -68,8 +68,13 @@ export interface ProgramRuntime {
@@ -105,7 +119,9 @@ index aed7334..f82e390 100755
  
  /**
 diff --git a/packages/core/src/cells/router.ts b/packages/core/src/cells/router.ts
-index f5d1f41..d3921da 100755
+old mode 100644
+new mode 100755
+index f5d1f41..d3921da
 --- a/packages/core/src/cells/router.ts
 +++ b/packages/core/src/cells/router.ts
 @@ -88,11 +88,15 @@ export async function evaluateRouter(
@@ -126,8 +142,16 @@ index f5d1f41..d3921da 100755
          if (rule.route.with && result.status === 'ready' && result.data && typeof result.data === 'object') {
            return { ...result, data: { ...(result.data as object), ...rule.route.with } };
          }
+diff --git a/packages/core/src/cells/sensor.ts b/packages/core/src/cells/sensor.ts
+old mode 100644
+new mode 100755
+diff --git a/packages/core/src/cells/value.ts b/packages/core/src/cells/value.ts
+old mode 100644
+new mode 100755
 diff --git a/packages/core/src/context.ts b/packages/core/src/context.ts
-index 90549d2..7b02a43 100755
+old mode 100644
+new mode 100755
+index 90549d2..7b02a43
 --- a/packages/core/src/context.ts
 +++ b/packages/core/src/context.ts
 @@ -156,8 +156,14 @@ export function evalWhen(when: string, ctx: CallerContext): boolean {
@@ -171,7 +195,9 @@ index 90549d2..7b02a43 100755
 +  return `${base}|in:${stableJson(input)}`;
 +}
 diff --git a/packages/core/src/engine.ts b/packages/core/src/engine.ts
-index 7f495dd..c9d17a6 100755
+old mode 100644
+new mode 100755
+index 7f495dd..c9d17a6
 --- a/packages/core/src/engine.ts
 +++ b/packages/core/src/engine.ts
 @@ -101,7 +101,7 @@ import type {
@@ -435,8 +461,19 @@ index 7f495dd..c9d17a6 100755
      }
    }
  
+diff --git a/packages/core/src/gesture.ts b/packages/core/src/gesture.ts
+old mode 100644
+new mode 100755
+diff --git a/packages/core/src/index.ts b/packages/core/src/index.ts
+old mode 100644
+new mode 100755
+diff --git a/packages/core/src/parser.ts b/packages/core/src/parser.ts
+old mode 100644
+new mode 100755
 diff --git a/packages/core/src/types.ts b/packages/core/src/types.ts
-index 5db6aba..59252e5 100755
+old mode 100644
+new mode 100755
+index 5db6aba..59252e5
 --- a/packages/core/src/types.ts
 +++ b/packages/core/src/types.ts
 @@ -346,6 +346,11 @@ export interface CellDef {
@@ -451,3 +488,41 @@ index 5db6aba..59252e5 100755
  
    // sensor
    source?: string;
+diff --git a/packages/core/test/ai.test.ts b/packages/core/test/ai.test.ts
+index 9edb766..8c7aafa 100644
+--- a/packages/core/test/ai.test.ts
++++ b/packages/core/test/ai.test.ts
+@@ -76,7 +76,7 @@ cells:
+     expect(lastConfig.prompt).toBe('Tell me about Quilt (a reactive runtime)');
+   });
+ 
+-  it('caches results by input hash', async () => {
++  it('PLAY-TEST PATCH 12: re-evaluates by default; caches only with memo: true', async () => {
+     let callCount = 0;
+     const stubEngine: AIEngineLike = {
+       call: async (_config) => { callCount++; return `call-${callCount}`; },
+@@ -93,11 +93,23 @@ cells:
+     provider: zai
+     model: glm-4.5
+     prompt: "{{q}}"
++  - id: b
++    kind: ai
++    ai_kind: ai.llm
++    provider: zai
++    model: glm-4.5
++    prompt: "{{q}}"
++    memo: true
+ `);
+     engine.loadSheet(sheet);
++    // default: effectful cells are functions of sheet state too -> fresh
+     await engine.get('a');
+     await engine.get('a');
+-    expect(callCount).toBe(1); // cached
++    expect(callCount).toBe(2);
++    // opt-in memo: same context + input -> cached
++    await engine.get('b');
++    await engine.get('b');
++    expect(callCount).toBe(3);
+   });
+ 
+   it('handles all 7 sub-kinds', async () => {
