@@ -115,3 +115,23 @@ contract, or schemas become hints by accident.*
 - The ecosystem's center of gravity (Ocean/Decide/quantum) is service-shaped;
   E8/E9 argue the durable form is sheet-shaped. Both can be true: the cloud
   Ocean is the fleet's shared memory; Ocean-as-a-sheet is the portable unit.
+
+---
+
+## Documentation
+
+Wave-69 full-knowledge doc package — routes each audience tier to the right file:
+
+| Audience | Start here |
+|---|---|
+| New agent / zero-shot onboarding | [docs/ONBOARDING.md](docs/ONBOARDING.md) — clone → competent in ~10 minutes; gotchas first |
+| End user running the demos | [docs/USER-GUIDE.md](docs/USER-GUIDE.md) — install (none needed), first success in 5 minutes, troubleshooting |
+| Developer extending the probes / sheets / patches | [docs/DEVELOPER-GUIDE.md](docs/DEVELOPER-GUIDE.md) — code layout, core concepts, extension recipes, testing |
+| Engineer operating or reviewing the system | [docs/ENGINEERING-NOTES.md](docs/ENGINEERING-NOTES.md) — patch-set architecture, invariants, failure modes, measured envelope, design decisions |
+| Executive deciding investment | [docs/CTO-BRIEF.md](docs/CTO-BRIEF.md) — value, maturity, risks, cost, strategic options |
+| Anyone indexing deeper knowledge | [docs/KNOWLEDGE-MAP.md](docs/KNOWLEDGE-MAP.md) — the index of indexes: repo, fleet, journal Task IDs, receipts, search recipes |
+
+Receipt-checkers: `PLAYTEST-LOG.md` (executed results, including what could not run)
+and `patches/playtest-patches.diff` (the 12-patch artifact, each fix documented at the
+hunk) remain the primary sources of record; the docs above route to them rather than
+replace them.
